@@ -1,0 +1,14 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "name": "logger-lib",
+  "version": "1.0.0",
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts"
+    },
+    "dest": "../../dist/logger-lib"
+  },
+  "peerDependencies": {
+    "@angular/core": "5.1.0"
+  }
+}
