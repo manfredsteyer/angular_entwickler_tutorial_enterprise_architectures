@@ -5,29 +5,22 @@ import { LoggerService } from './logger.service';
 import { LogFormatterService } from './log-formatter.service';
 import { DefaultLogFormatterService } from './default-log-formatter.service';
 
-
-const defaultFormatterConfig = [{
-  provide: LogFormatterService,
-  useClass: DefaultLogFormatterService
-}];
-
+const defaultFormatterConfig = [
+  {
+    provide: LogFormatterService,
+    useClass: DefaultLogFormatterService
+  }
+];
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: []
 })
-export class LoggerModule { 
+export class LoggerModule {
   static forRoot(config: LoggerConfig): ModuleWithProviders {
-    
     return {
       ngModule: LoggerModule,
-      providers: [
-        LoggerService,
-        { provide: LoggerConfig, useValue: config}
-      ]
-    }
+      providers: [LoggerService, { provide: LoggerConfig, useValue: config }]
+    };
   }
-
 }

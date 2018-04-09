@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { LoggerService } from '@flight-workspace/logger-lib';
 
-
 @Component({
   selector: 'flight-app',
   templateUrl: './app.component.html',

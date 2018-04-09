@@ -21,7 +21,7 @@ import { LoggerModule } from '@flight-workspace/logger-lib';
     HttpClientModule,
     FlightBookingModule,
     FlightApiModule.forRoot(),
-    LoggerModule.forRoot({ enableDebug: true}),
+    LoggerModule.forRoot({ enableDebug: true }),
     SharedModule.forRoot(),
     RouterModule.forRoot([...APP_ROUTES], { ...APP_EXTRA_OPTIONS })
   ],

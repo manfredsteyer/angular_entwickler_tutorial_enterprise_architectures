@@ -2,5 +2,5 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export abstract class LoggerConfig {
-    enableDebug: boolean;
+  enableDebug: boolean;
 }

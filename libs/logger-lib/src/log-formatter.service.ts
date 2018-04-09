@@ -1,5 +1,3 @@
-
-
 export abstract class LogFormatterService {
-    abstract format(message: string): string;
+  abstract format(message: string): string;
 }

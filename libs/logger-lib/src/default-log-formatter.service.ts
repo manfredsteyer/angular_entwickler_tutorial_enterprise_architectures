@@ -3,7 +3,7 @@ import { LogFormatterService } from './log-formatter.service';
 
 @Injectable()
 export class DefaultLogFormatterService implements LogFormatterService {
-    format(message: string): string {
-        return message;
-    }
+  format(message: string): string {
+    return message;
+  }
 }
