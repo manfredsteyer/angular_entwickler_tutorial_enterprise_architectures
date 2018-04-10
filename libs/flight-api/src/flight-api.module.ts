@@ -3,7 +3,13 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FlightService } from './services/flight.service';
 
 @NgModule({
-  imports: [CommonModule]
+  imports: [CommonModule],
+  declarations: [
+    /* My Components */
+  ],
+  exports: [
+    /* My Components */
+  ]
 })
 export class FlightApiModule {
   static forRoot(): ModuleWithProviders {

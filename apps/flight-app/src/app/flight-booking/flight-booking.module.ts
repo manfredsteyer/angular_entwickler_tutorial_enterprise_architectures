@@ -9,13 +9,26 @@ import { FlightCardComponent } from './flight-card/flight-card.component';
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { flightBookingReducer } from './+state/flight-booking.reducer';
+import { flightBookingInitialState } from './+state/flight-booking.init';
+import { FlightBookingEffects } from './+state/flight-booking.effects';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    
+    TranslateModule.forChild(),
+
     SharedModule.forChild(),
-    RouterModule.forChild(FLIGHT_BOOKING_ROUTES)
+    RouterModule.forChild(FLIGHT_BOOKING_ROUTES),
+    StoreModule.forFeature('flightBooking', flightBookingReducer, {
+      initialState: flightBookingInitialState
+    }),
+    EffectsModule.forFeature([FlightBookingEffects])
   ],
   declarations: [
     FlightSearchComponent,
@@ -24,7 +37,7 @@ import { PassengerSearchComponent } from './passenger-search/passenger-search.co
     FlightEditComponent,
     FlightBookingComponent
   ],
-  providers: [],
+  providers: [FlightBookingEffects],
   exports: [FlightSearchComponent]
 })
 export class FlightBookingModule {}

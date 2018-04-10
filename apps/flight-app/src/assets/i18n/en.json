@@ -1,0 +1,8 @@
+{
+    "FLIGHTS": {
+        "from": "From",
+        "to": "to",
+        "search": "Search",
+        "found": {"=0": "No flights found", "=1": "One flight found", "other": "# flights found"}
+    }
+}

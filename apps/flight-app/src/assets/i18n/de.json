@@ -1,0 +1,12 @@
+{
+    "FLIGHTS": {
+        "from": "Von",
+        "to": "Nach",
+        "search": "Suchen",
+        "found": {
+            "=0": "Kein Flug gefunden", 
+            "=1": "Ein Flug gefunden", 
+            "other": "# Flüge gefunden"
+        }
+    }
+}

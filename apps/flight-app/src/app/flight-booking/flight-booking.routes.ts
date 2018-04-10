@@ -3,10 +3,12 @@ import { FlightBookingComponent } from './flight-booking.component';
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
+import { AuthGuard } from '../shared/auth/auth.guard';
+import { ExitGuard } from '../shared/exit/exit.guard';
 
 export const FLIGHT_BOOKING_ROUTES: Routes = [
   {
-    path: 'flight-booking',
+    path: '',
     component: FlightBookingComponent,
     children: [
       {
@@ -15,11 +17,13 @@ export const FLIGHT_BOOKING_ROUTES: Routes = [
       },
       {
         path: 'passenger-search',
-        component: PassengerSearchComponent
+        component: PassengerSearchComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'flight-edit/:id',
-        component: FlightEditComponent
+        component: FlightEditComponent,
+        canDeactivate: [ExitGuard]
       }
     ]
   }

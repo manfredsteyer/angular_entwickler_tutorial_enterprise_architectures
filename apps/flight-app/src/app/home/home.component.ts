@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../shared/auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,26 +9,32 @@ import { ActivatedRoute } from '@angular/router';
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private authService: AuthService,
+    private route: ActivatedRoute
+  ) {
+
+    console.debug('authService', this.authService);
+  }
 
   needsLogin: boolean;
   _userName: string = '';
 
   ngOnInit() {
     this.route.params.subscribe(
-      params => (this.needsLogin = !!params['needsLogin'])
+      params => (this.needsLogin = !!params['needLogin'])
     );
   }
 
   get userName(): string {
-    return this._userName;
+    return this.authService.userName;
   }
 
   login(): void {
-    this._userName = 'Login will be implemented in another exercise!';
+    this.authService.login();
   }
 
   logout(): void {
-    this._userName = '';
+    this.authService.logout();
   }
 }
